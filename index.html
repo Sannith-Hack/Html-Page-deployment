@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Page Deployment Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="./images/download.jpeg">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+        /* Custom animations for slide transitions */
+        .slide.exit-left {
+            transform: translateX(-100%) scale(0.9);
+            opacity: 0;
+        }
+        .slide.enter-right {
+            transform: translateX(100%) scale(0.9);
+            opacity: 0;
+        }
+        .slide.exit-right {
+            transform: translateX(100%) scale(0.9);
+            opacity: 0;
+        }
+        .slide.enter-left {
+            transform: translateX(-100%) scale(0.9);
+            opacity: 0;
+        }
+        .slide-content {
+            width: 90%;
+            max-width: 1000px;
+        }
+        .nav-button {
+            transition: all 0.2s ease;
+        }
+        .nav-button:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background-color: #f8fafc; /* Tailwind's gray-50 */
+            transition: width 0.3s ease-out;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 to-gray-800 text-white flex items-center justify-center h-screen">
+
+    <!-- Slide 1: Title -->
+    <div id="slide-1" class="slide active">
+        <div class="slide-content text-center p-8">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-sky-400">HTML Page Deployment 🚀</h1>
+            <p class="mt-6 text-xl md:text-2xl text-slate-300">How to Host and Share Your Website Online</p>
+            <p class="mt-12 text-lg text-slate-400">P.Sannith</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: What is Deployment? -->
+    <div id="slide-2" class="slide">
+        <div class="slide-content bg-white/10 backdrop-blur-md rounded-2xl p-10 md:p-12 shadow-2xl border border-white/20">
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-400 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                What is Deployment? 🌍
+            </h2>
+            <ul class="space-y-4 text-lg md:text-xl text-slate-200">
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">▶</span> Deployment is the process of making your website publicly accessible on the internet.</li>
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">▶</span> It converts your local project files (HTML, CSS, JS) into a live site accessible via a URL.</li>
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">▶</span> Used for: personal portfolios, company websites, project showcases, and more.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Slide 3: Deployment Workflow -->
+    <div id="slide-3" class="slide">
+        <div class="slide-content p-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-sky-400">Deployment Workflow</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/10 rounded-full p-6 mb-4 border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                    <h3 class="font-bold text-xl mb-1">Develop</h3>
+                    <p class="text-slate-300">Write HTML, CSS, JS on your local machine.</p>
+                </div>
+                <div class="hidden md:flex items-center justify-center text-4xl text-slate-500">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/10 rounded-full p-6 mb-4 border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+                    <h3 class="font-bold text-xl mb-1">Test</h3>
+                    <p class="text-slate-300">Run and check in browsers like Chrome or Firefox.</p>
+                </div>
+                <div class="hidden md:flex items-center justify-center text-4xl text-slate-500">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/10 rounded-full p-6 mb-4 border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div>
+                    <h3 class="font-bold text-xl mb-1">Deploy</h3>
+                    <p class="text-slate-300">Upload your code to a hosting platform.</p>
+                </div>
+                <div class="hidden md:flex items-center justify-center text-4xl text-slate-500">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/10 rounded-full p-6 mb-4 border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg></div>
+                    <h3 class="font-bold text-xl mb-1">Access</h3>
+                    <p class="text-slate-300">Share the public URL with your users.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 4: Deployment Methods -->
+    <div id="slide-4" class="slide">
+        <div class="slide-content p-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-emerald-400">Common Deployment Methods</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20"><h3 class="font-bold text-lg">Shared Hosting</h3><p class="text-slate-300 text-sm mt-1">cPanel, Bluehost</p></div>
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20"><h3 class="font-bold text-lg">Cloud Hosting</h3><p class="text-slate-300 text-sm mt-1">AWS, GCP, Azure</p></div>
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20"><h3 class="font-bold text-lg">Static Hosting</h3><p class="text-slate-300 text-sm mt-1">GitHub Pages, Netlify ,Render</p></div>
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20"><h3 class="font-bold text-lg">Local Hosting</h3><p class="text-slate-300 text-sm mt-1">XAMPP, WAMP (Testing)</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: GitHub Pages -->
+    <div id="slide-5" class="slide">
+        <div class="slide-content bg-white/10 backdrop-blur-md rounded-2xl p-10 md:p-12 shadow-2xl border border-white/20">
+            <h2 class="text-3xl md:text-4xl font-bold text-sky-400 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub Pages (Free Hosting)
+            </h2>
+            <ol class="space-y-4 text-lg md:text-xl list-decimal list-inside text-slate-200">
+                <li>Create a new repository on GitHub and push your code.</li>
+                <li>In your repository, go to <span class="bg-sky-400/20 text-sky-300 px-2 py-1 rounded">Settings → Pages</span>.</li>
+                <li>Under "Source", select the branch to deploy (e.g., <code class="bg-gray-700 text-sm px-1.5 py-0.5 rounded">main</code>).</li>
+                <li>Wait a minute and... you get a free website link! 🎉</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Slide 6: Netlify / Vercel -->
+    <div id="slide-6" class="slide">
+        <div class="slide-content bg-white/10 backdrop-blur-md rounded-2xl p-10 md:p-12 shadow-2xl border border-white/20">
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-400 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="12"></line><line x1="22" y1="8.5" x2="12" y2="12"></line><line x1="2" y1="8.5" x2="12" y2="12"></line><line x1="17" y1="5.5" x2="7" y2="5.5"></line></svg>
+                Modern Static Hosting: Netlify & Vercel
+            </h2>
+            <ul class="space-y-4 text-lg md:text-xl text-slate-200">
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">✓</span> Simple drag-and-drop deployment for your project folder.</li>
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">✓</span> Connect your GitHub repo for automatic deploys on every push.</li>
+                <li class="flex items-start"><span class="text-emerald-400 mr-3 mt-1.5">✓</span> Includes free SSL, custom domain support, and CI/CD pipelines.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Slide 7: FTP Deployment -->
+    <div id="slide-7" class="slide">
+        <div class="slide-content bg-white/10 backdrop-blur-md rounded-2xl p-10 md:p-12 shadow-2xl border border-white/20">
+            <h2 class="text-3xl md:text-4xl font-bold text-sky-400 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M5 12H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1zm16 0h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1zM12 2v8.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V2"></path><path d="M12 2l4.5 4.5"></path><path d="M12 2L7.5 6.5"></path><path d="M12 11h-1"></path><path d="M12 11h1"></path><path d="M15 11h-1"></path><path d="M15 11h1"></path><path d="M9 11H8"></path><path d="M9 11h1"></path><path d="M12 14v3"></path><path d="M12 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+                The Classic: FTP Deployment
+            </h2>
+            <ul class="space-y-4 text-lg md:text-xl text-slate-200">
+                <li class="flex items-start"><span class="text-sky-400 mr-3 mt-1.5">●</span> Manually upload HTML files to a server using an FTP client (e.g., FileZilla).</li>
+                <li class="flex items-start"><span class="text-sky-400 mr-3 mt-1.5">●</span> Requires purchasing a hosting service and a domain name separately.</li>
+                <li class="flex items-start"><span class="text-sky-400 mr-3 mt-1.5">●</span> A traditional, reliable, and powerful method for all types of websites.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Slide 8: Key Considerations -->
+    <div id="slide-8" class="slide">
+        <div class="slide-content p-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-emerald-400">Key Deployment Considerations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-lg">
+                <div class="flex items-center"><span class="text-emerald-400 text-2xl mr-4">✅</span> File Structure (<code class="bg-gray-700 text-sm px-1.5 py-0.5 rounded">index.html</code> at root)</div>
+                <div class="flex items-center"><span class="text-emerald-400 text-2xl mr-4">✅</span> Optimize images & code for speed</div>
+                <div class="flex items-center"><span class="text-emerald-400 text-2xl mr-4">✅</span> Add a <code class="bg-gray-700 text-sm px-1.5 py-0.5 rounded">favicon.ico</code> for branding</div>
+                <div class="flex items-center"><span class="text-emerald-400 text-2xl mr-4">✅</span> Test responsiveness (mobile & desktop)</div>
+                <div class="flex items-center"><span class="text-emerald-400 text-2xl mr-4">✅</span> SEO basics (title, meta tags)</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 9: Demo Flow -->
+    <div id="slide-9" class="slide">
+        <div class="slide-content bg-white/10 backdrop-blur-md rounded-2xl p-10 md:p-12 shadow-2xl border border-white/20">
+            <h2 class="text-3xl md:text-4xl font-bold text-sky-400 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Live Demo Flow
+            </h2>
+            <ol class="space-y-4 text-lg md:text-xl list-decimal list-inside text-slate-200">
+                <li><span class="font-semibold">Step 1:</span> Create a simple <code class="bg-gray-700 text-sm px-1.5 py-0.5 rounded">index.html</code> file.</li>
+                <li><span class="font-semibold">Step 2:</span> Initialize a Git repository and push it to GitHub.</li>
+                <li><span class="font-semibold">Step 3:</span> Enable GitHub Pages in the repository settings.</li>
+                <li><span class="font-semibold">Step 4:</span> Share the public URL with everyone!</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Slide 10: Conclusion -->
+    <div id="slide-10" class="slide">
+        <div class="slide-content text-center p-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-emerald-400">Conclusion & Takeaways</h2>
+            <p class="text-lg md:text-xl text-slate-300 mb-8">Deployment is the final, exciting step to take your website live! 🌐</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20 flex-1">Many free & paid options are available.</div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20 flex-1">Choose a method based on your project's size & needs.</div>
+            </div>
+            <p class="mt-12 text-2xl md:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-sky-400">🚀 Your first website is just a push away!</p>
+        </div>
+    </div>
+
+
+    <!-- Navigation -->
+    <button id="prev-btn" class="nav-button fixed top-1/2 left-4 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md text-white z-40">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button id="next-btn" class="nav-button fixed top-1/2 right-4 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md text-white z-40">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progressBar = document.getElementById('progress-bar');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function showSlide(index, direction) {
+                // Animate out the current slide
+                const currentSlideEl = slides[currentSlide];
+                if (direction === 'next') {
+                    currentSlideEl.classList.add('exit-left');
+                } else {
+                    currentSlideEl.classList.add('exit-right');
+                }
+                
+                // Set a timeout to remove animation classes and hide the slide
+                setTimeout(() => {
+                    currentSlideEl.classList.remove('active', 'exit-left', 'exit-right');
+                }, 600);
+                
+                // Animate in the new slide
+                currentSlide = index;
+                const newSlideEl = slides[currentSlide];
+                newSlideEl.classList.add('active');
+                if (direction === 'next') {
+                    newSlideEl.classList.add('enter-right');
+                } else {
+                    newSlideEl.classList.add('enter-left');
+                }
+                
+                setTimeout(() => {
+                    newSlideEl.classList.remove('enter-right', 'enter-left');
+                }, 10); // Start transition right away
+
+                updateNav();
+            }
+
+            function updateNav() {
+                prevBtn.style.visibility = currentSlide === 0 ? 'hidden' : 'visible';
+                nextBtn.style.visibility = currentSlide === totalSlides - 1 ? 'hidden' : 'visible';
+                const progress = ((currentSlide + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1, 'prev');
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < totalSlides - 1) {
+                    showSlide(currentSlide + 1, 'next');
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                    nextBtn.click();
+                } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    prevBtn.click();
+                }
+            });
+
+            // Initial setup
+            // Reset all slide classes except for the first one
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'exit-left', 'enter-right', 'exit-right', 'enter-left');
+                if (index === 0) {
+                    slide.classList.add('active');
+                }
+            });
+            updateNav();
+        });
+    </script>
+</body>
+</html>
